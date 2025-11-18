@@ -1,10 +1,10 @@
 # Índice
 
-- [[#Explicación]]
-- [[#Cómo identificar un Endpoint XSS]]
-- [[#Finalidad del XSS]]
-- [[#Herramientas]]
-- [[#Referencias]]
+- [Explicación](#explicación)
+- [Cómo identificar un Endpoint XSS](#cómo-identificar-un-endpoint-xss)
+- [Finalidad del XSS](#finalidad-del-xss)
+- [Herramientas](#herramientas)
+- [Referencias](#referencias)
 
 # Explicación
 
