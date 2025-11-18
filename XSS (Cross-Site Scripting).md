@@ -71,11 +71,10 @@ La herramienta más conocida es **XSStrike**: https://github.com/s0md3v/XSStrike
 
 ##### 1. Escaneo básico de URL
 
-- GET request: `
+- GET request:
 ```
 python xsstrike.py -u "http://example.com/search.php?q=query"
 ```
-`
 
 - POST request: 
 ```
