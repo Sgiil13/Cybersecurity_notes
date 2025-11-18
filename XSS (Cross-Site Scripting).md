@@ -1,4 +1,4 @@
-# Índice
+## 📚 Índice
 
 - [Explicación](#explicación)
 - [Cómo identificar un Endpoint XSS](#cómo-identificar-un-endpoint-xss)
@@ -6,7 +6,7 @@
 - [Herramientas](#herramientas)
 - [Referencias](#referencias)
 
-# Explicación
+## 💡 Explicación
 
 XSS es una vulnerabilidad de seguridad que permite a un atacante inyectar código malicioso(generalmente JavaScript) en una página web. Cuando la víctima accede a la página, el código se ejecuta en su navegador, permitiendo robar cookies, sesiones, datos personales o realizar acciones no autorizadas.
 
@@ -24,7 +24,7 @@ A continuación se muestra un ejemplo básico de un payload XSS:
 <script>alert('XSS')</script>
 ```
 
-# Cómo identificar un Endpoint XSS
+## 🔎 Cómo identificar un Endpoint XSS
 
 Para localizar posibles Endpoints XSS realizaremos el siguiente proceso:
 
@@ -48,7 +48,7 @@ Para localizar posibles Endpoints XSS realizaremos el siguiente proceso:
 
 4. **Ajustamos los payloads**: En caso de que encontremos qué caracteres estén restringidos, buscamos payloads que puedan bypassear los filtros.
 
-# Finalidad del XSS
+## 🎯 Finalidad del XSS
 
 Si conseguimos un endpoint vulnerable a XSS, podemos extraer información del usuario como por ejemplo:
 
@@ -64,7 +64,7 @@ window.sessionStorage
 ```
 
 etc...
-# Herramientas
+## 🔧 Herramientas
 
 La herramienta más conocida es **XSStrike**: https://github.com/s0md3v/XSStrike
 ### Modo de uso
@@ -99,7 +99,7 @@ python xsstrike.py -u "http://example.com/" --crawl
 python xsstrike.py -u "http://example.com/" --crawl -l 3
 ```
 
-# Referencias
+## 🔗 Referencias
 
 Lista de payloads XSS: https://github.com/payloadbox/xss-payload-list
 
