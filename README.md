@@ -4,7 +4,6 @@
 
 Este repositorio alberga (o albergará) explicaciones detalladas, resúmenes y guías prácticas sobre las **vulnerabilidades más conocidas** en aplicaciones web, sistemas y redes, así como técnicas avanzadas de explotación y testing de seguridad. Diseñado como recurso educativo para profesionales en formación, es especialmente útil para quienes buscan desarrollar una carrera en **Pentesting** y prepararse para certificaciones de seguridad ofensiva.
 
----
 
 ## 📚 Índice de Contenidos
 
@@ -13,7 +12,6 @@ Este repositorio alberga (o albergará) explicaciones detalladas, resúmenes y g
 - [Certificaciones Objetivo](#certificaciones-objetivo)
 - [Recursos Externos](#recursos-externos)
 
----
 
 ## 🎯 Descripción General
 
@@ -25,7 +23,6 @@ Este repositorio se organiza de forma modular, cubriendo desde vulnerabilidades 
 - **Métodos de Bypassing**: Cómo evadir las principales medidas de defensa
 - **Referencias y laboratorios**: Enlaces a plataformas de práctica (HackTheBox, TryHackMe, etc.)
 
----
 
 ## 👥 ¿A quién va dirigido?
 
@@ -35,7 +32,6 @@ Este repositorio se organiza de forma modular, cubriendo desde vulnerabilidades 
 - **Certificandos**: Preparando exámenes como CPTS, eWPT, OSCP, GPEN, o similares
 - **Curiosos en seguridad**: Con propósito educativo y ético
 
----
 
 ## 🎓 Certificaciones Objetivo
 
@@ -46,7 +42,6 @@ Este repositorio prepara para:
 - **OSCP** (Offensive Security Certified Professional)
 - **CEH** (Certified Ethical Hacker)
 
----
 
 ## 📚 Recursos Externos
 
