@@ -1,7 +1,6 @@
 # 🔐 Repositorio de Ciberseguridad Ofensiva
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/yourrepo?style=social)](https://github.com/yourusername/yourrepo)
 
 Este repositorio alberga (o albergará) explicaciones detalladas, resúmenes y guías prácticas sobre las **vulnerabilidades más conocidas** en aplicaciones web, sistemas y redes, así como técnicas avanzadas de explotación y testing de seguridad. Diseñado como recurso educativo para profesionales en formación, es especialmente útil para quienes buscan desarrollar una carrera en **Pentesting** y prepararse para certificaciones de seguridad ofensiva.
 
@@ -11,15 +10,8 @@ Este repositorio alberga (o albergará) explicaciones detalladas, resúmenes y g
 
 - [Descripción General](#descripción-general)
 - [¿A quién va dirigido?](#a-quién-va-dirigido)
-- [Contenidos Disponibles](#contenidos-disponibles)
-- [Categorías de Vulnerabilidades](#categorías-de-vulnerabilidades)
-- [Cómo Usar Este Repositorio](#cómo-usar-este-repositorio)
-- [Herramientas Recomendadas](#herramientas-recomendadas)
 - [Certificaciones Objetivo](#certificaciones-objetivo)
 - [Recursos Externos](#recursos-externos)
-- [Contribuciones](#contribuciones)
-- [Disclaimer Legal](#disclaimer-legal)
-- [Contacto](#contacto)
 
 ---
 
