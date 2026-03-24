@@ -1,5 +1,5 @@
 # 💡 Explicación
----
+
 SQL Injection permite a un atacante manipular consultas SQL mediante inyección de código malicioso en campos de entrada no validados. 
 
 ```
@@ -49,7 +49,6 @@ Si vemos cambios o errores según lo que inyectamos, hay un potencial endpoint v
 Podemos diferenciar los siguientes tipos:
 
 ### 1️⃣ **Union-based**
----
 
 💡 **¿Cómo funciona?** → Aprovecha el operador `UNION` para combinar resultados de consultas múltiples. El atacante debe conocer el número correcto de columnas y sus tipos de datos.
 
@@ -134,7 +133,6 @@ Para que funcione un UNION attack, DEBEN cumplirse dos condiciones:​
 ```
 
 ### 2️⃣ **Error-based**
----
 
 💡 **¿Cómo funciona?** → Fuerza errores SQL deliberados para extraer información de los mensajes de error. La base de datos revela detalles en los mensajes de fallo. 
 
@@ -147,7 +145,6 @@ ERROR: "invalid input syntax for type integer: "Example data" 
 ```
 
 ### 3️⃣ **Blind Boolean-based**
----
 
 💡 **¿Cómo funciona?** → Inyecta condiciones verdaderas/falsas y observa cambios en el comportamiento de la aplicación (página diferente, contenido, estado 200 vs 404).
 
@@ -166,7 +163,6 @@ la segunda sí (1=1 es cierto, se evalúa 1/0).
 ```
 
 ### 4️⃣ **Blind Time-based**
----
 
 💡 **¿Cómo funciona?** → Usa funciones de retraso (`SLEEP()`, `WAITFOR`, `BENCHMARK()`) para inferir si condiciones son verdaderas/falsas según el tiempo de respuesta del servidor.
 
@@ -192,7 +188,6 @@ la segunda sí (1=1 es cierto, se evalúa 1/0).
 ```
 
 # 🎯 Finalidad 
----
 
 La finalidad del SQLi es conseguir acceso a datos de la BBDD a los que no se debería poder acceder. Estos son los archivos importante para recordar.
 
@@ -227,7 +222,6 @@ is_admin
 ```
 
 # ✋🏻 Bypasses
----
 
 Para bypassear algunas medidas débiles de seguridad, podemos realizar los siguientes bypasses:
 
@@ -237,7 +231,6 @@ Para bypassear algunas medidas débiles de seguridad, podemos realizar los sigui
 - **Hex Encoding**: `0x31 OR 0x31=0x31
 
 # 🔧 Herramientas
----
 
 Para SQLi, la herramienta más conocida es SQLmap. Aquí se explica su uso:
 
@@ -271,6 +264,5 @@ sqlmap -u "http://target.com/?id=1" --os-shell
 - `-D db -T tabla -C col --dump` → volcar datos específicos[](https://www.stationx.net/sqlmap-cheat-sheet/)
 ​
 # 🔗 Referencias
----
 
 https://portswigger.net/web-security/sql-injection/cheat-sheet
