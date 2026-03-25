@@ -28,7 +28,7 @@ Si el servidor no filtra los corchetes angulares `< >`, estos son los mejores al
 |**Sin interacción**|`<svg onload=alert(1)>`|Muy útil porque se ejecuta solo al cargar la imagen vectorial.|
 |**HTML5**|`<details open ontoggle=alert(1)>`|Menos común, suele saltarse filtros antiguos.|
 
----
+
 
 ### 2️⃣ **Contexto de Atributo** (Rompiendo la etiqueta)
 
@@ -50,7 +50,6 @@ Es muy común que la entrada caiga dentro de un `value="..."` o un `title="..."`
 javascript:alert(1)
 ```
 
----
 
 ### 3️⃣ **Contexto JavaScript** (Dentro de un bloque `<script>`)
 
