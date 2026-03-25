@@ -164,4 +164,4 @@ python xsstrike.py -u "http://example.com/" --crawl -l 3
 
 # 🔗 Referencias
 
-Lista de payloads XSS: https://github.com/payloadbox/xss-payload-list
+Lista de payloads XSS: [https://github.com/payloadbox/xss-payload-list](https://github.com/payload-box/xss-payload-list)
