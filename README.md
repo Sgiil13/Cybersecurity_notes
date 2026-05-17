@@ -35,7 +35,7 @@ This repository is organized in a modular way, covering everything from basic vu
 
 ## 🎓 Target Certifications
 
-This repository prepares for:
+This repository prepares for certification like:
 
 - **CPTS** (Certified Penetration Testing Specialist) - INE Security
 - **eWPT** (eLearnSecurity Web Penetration Tester)
